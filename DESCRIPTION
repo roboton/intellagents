@@ -1,0 +1,15 @@
+Package: intellagents
+Title: Reinforcement Learning through Human Decisions
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Robert",
+           family = "On",
+           role = c("aut", "cre"),
+           email = "roberton@gmail.com",
+           comment = c(ORCID = "0000-0001-9122-2773"))
+Description: Reinforcement learning approach towards optimal selection of human agents that results in optimal outcomes. The selection heuristic seeks to balance exploration and exploitation across available agents and implements several features that adapt for real-world constraints.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
