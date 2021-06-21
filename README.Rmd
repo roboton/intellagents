@@ -13,20 +13,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-# intellagents
-
 <!-- badges: start -->
 <!-- badges: end -->
 
 ## Installation
 
-You can install the released version of intellagents from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("intellagents")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -172,7 +164,7 @@ count_plots <- plot_counts(simulated_cases, agent_scores = agent_scores,
 
 plot_list <- list(agent_perf_scat, agent_perf_dens, count_plots)
 all_plots <- plotly::subplot(plot_list, nrows = length(plot_list), margin = margin)
-# htmlwidgets::saveWidget(all_plots, file = "multiagent_demo.html")
+htmlwidgets::saveWidget(all_plots, file = "intellagents_demo.html")
 all_plots
 ```
 
@@ -182,4 +174,4 @@ The second row of plots is similar but plots each outcome separately in its own 
 
 The third row of plots are the accumulated case assignments (left) and outcomes (right), colored by the scenario, across time. Assigning more cases to the better performing agents results in higher accumulated counts of the desired outcomes.
 
-For a larger version of the final plot, click [here](https://ond3.com/multiagent_demo.html).
+For a larger version of the final plot, click [here](https://roboton.github.io/intellagents/intellagents_demo.html).

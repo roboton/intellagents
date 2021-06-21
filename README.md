@@ -1,21 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# intellagents
-
 <!-- badges: start -->
 <!-- badges: end -->
 
 ## Installation
 
-You can install the released version of intellagents from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("intellagents")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -169,12 +160,12 @@ future capability to have performance vary by these characteristics.
 cases <- generate_cases(num_cases, time_period = time_period)
 cases %>% mutate(across(where(is.character), as.factor)) %>% summary()
 #>    date_time                      case_id       subject_id   case_char
-#>  Min.   :2018-06-22 01:23:09   02ad7  :   2   1032a  :   7   A:1577   
-#>  1st Qu.:2019-03-19 04:43:45   0b6f9  :   2   246ec  :   6   B:1612   
-#>  Median :2019-12-10 12:43:20   0e29f  :   2   96feb  :   6   C:1582   
-#>  Mean   :2019-12-16 05:28:19   21da3  :   2   db3ca  :   6   D:1616   
-#>  3rd Qu.:2020-09-19 14:48:38   258b3  :   2   dfac0  :   6   E:1613   
-#>  Max.   :2021-06-20 21:34:14   2b39e  :   2   0621b  :   5            
+#>  Min.   :2018-06-22 17:22:25   02ad7  :   2   1032a  :   7   A:1577   
+#>  1st Qu.:2019-03-19 20:43:02   0b6f9  :   2   246ec  :   6   B:1612   
+#>  Median :2019-12-11 04:42:36   0e29f  :   2   96feb  :   6   C:1582   
+#>  Mean   :2019-12-16 21:27:36   21da3  :   2   db3ca  :   6   D:1616   
+#>  3rd Qu.:2020-09-20 06:47:54   258b3  :   2   dfac0  :   6   E:1613   
+#>  Max.   :2021-06-21 13:33:30   2b39e  :   2   0621b  :   5            
 #>                                (Other):7988   (Other):7964            
 #>  subject_char
 #>  F:1705      
@@ -207,7 +198,7 @@ system.time({
                               methods = c("thompson", "random", "oracle"))
 })
 #>    user  system elapsed 
-#>  69.213   0.108  69.407
+#>  69.609   0.132  69.827
 ```
 
 ## Results
@@ -273,7 +264,7 @@ count_plots <- plot_counts(simulated_cases, agent_scores = agent_scores,
 
 plot_list <- list(agent_perf_scat, agent_perf_dens, count_plots)
 all_plots <- plotly::subplot(plot_list, nrows = length(plot_list), margin = margin)
-# htmlwidgets::saveWidget(all_plots, file = "multiagent_demo.html")
+htmlwidgets::saveWidget(all_plots, file = "intellagents_demo.html")
 all_plots
 ```
 
@@ -297,4 +288,4 @@ cases to the better performing agents results in higher accumulated
 counts of the desired outcomes.
 
 For a larger version of the final plot, click
-[here](https://ond3.com/multiagent_demo.html).
+[here](https://roboton.github.io/intellagents/intellagents_demo.html).
