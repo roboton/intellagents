@@ -14,9 +14,14 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
-    stats
-Suggests: 
-    testthat (>= 3.0.0)
+    stats,
+    dplyr,
+    stringr,
+    ggplot2,
+    plotly,
+    testthat (>= 3.0.0),
+    rlang,
+    tidyr
 Config/testthat/edition: 3
 URL: https://github.com/roboton/intellagents
 BugReports: https://github.com/roboton/intellagents/issues

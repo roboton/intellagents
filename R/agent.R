@@ -63,8 +63,6 @@ get_max_agent <- function(agents, outcome_weights = 1, norm_type = "O") {
 #' @return name of agent selected
 #' @export
 #' @importFrom stats aggregate rbeta
-#'
-#' @examples
 draw_agents <- function(case_history, method = "thompson",
                         agents, exclude_agent_ids = NULL,
                         outcomes, outcome_weights = 1, norm_type = "O") {

@@ -13,8 +13,6 @@
 #'
 #' @return cases annotated with agent selections and outcomes
 #' @export
-#'
-#' @examples
 simulate <- function(cases, agents, outcomes = colnames(agents[[1]]),
                      outcome_weights = rep(1, length(outcomes)),
                      norm_type = "O",
