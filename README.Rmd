@@ -16,7 +16,9 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-## Installation
+[repository](https://github.com/roboton/intellagents) [website](https://roboton.github.io/intellagents/) [demo](https://roboton.github.io/intellagents/intellagents_demo.html)
+
+# Installation
 
 You can install the development version from [GitHub](https://github.com/) with:
 
@@ -168,7 +170,7 @@ htmlwidgets::saveWidget(all_plots, file = "intellagents_demo.html")
 # all_plots
 ```
 
-Resuliting visualization can be found [here](https://roboton.github.io/intellagents/intellagents_demo.html) with an explanation below:
+Resulting visualization can be found [here](https://roboton.github.io/intellagents/intellagents_demo.html) with an explanation below:
 
 The first row of plots plots the beliefs and 2x mean deviation from the simulated estimates of each agents' performance across the two outcomes. As time passes and more cases are assigned to an agent, there is a more confident estimate of the agents' performance resulting in a tighter deviation.
 
