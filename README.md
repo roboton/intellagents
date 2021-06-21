@@ -3,7 +3,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-[repository](https://github.com/roboton/intellagents) [website](https://roboton.github.io/intellagents/) [demo](https://roboton.github.io/intellagents/intellagents_demo.html)
+[repository](https://github.com/roboton/intellagents)
+[website](https://roboton.github.io/intellagents/)
+[demo](https://roboton.github.io/intellagents/intellagents_demo.html)
 
 # Installation
 
@@ -91,7 +93,8 @@ library(tidyverse)
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 # set a seed for the random number generator for consistent results
-set.seed(143)
+rng_seed <- 143
+set.seed(rng_seed)
 
 ## agent 
 
@@ -162,12 +165,12 @@ future capability to have performance vary by these characteristics.
 cases <- generate_cases(num_cases, time_period = time_period)
 cases %>% mutate(across(where(is.character), as.factor)) %>% summary()
 #>    date_time                      case_id       subject_id   case_char
-#>  Min.   :2018-06-22 17:56:02   02ad7  :   2   1032a  :   7   A:1577   
-#>  1st Qu.:2019-03-19 21:16:39   0b6f9  :   2   246ec  :   6   B:1612   
-#>  Median :2019-12-11 05:16:13   0e29f  :   2   96feb  :   6   C:1582   
-#>  Mean   :2019-12-16 22:01:13   21da3  :   2   db3ca  :   6   D:1616   
-#>  3rd Qu.:2020-09-20 07:21:31   258b3  :   2   dfac0  :   6   E:1613   
-#>  Max.   :2021-06-21 14:07:07   2b39e  :   2   0621b  :   5            
+#>  Min.   :2018-06-22 18:48:49   02ad7  :   2   1032a  :   7   A:1577   
+#>  1st Qu.:2019-03-19 22:09:26   0b6f9  :   2   246ec  :   6   B:1612   
+#>  Median :2019-12-11 06:09:00   0e29f  :   2   96feb  :   6   C:1582   
+#>  Mean   :2019-12-16 22:54:00   21da3  :   2   db3ca  :   6   D:1616   
+#>  3rd Qu.:2020-09-20 08:14:18   258b3  :   2   dfac0  :   6   E:1613   
+#>  Max.   :2021-06-21 14:59:54   2b39e  :   2   0621b  :   5            
 #>                                (Other):7988   (Other):7964            
 #>  subject_char
 #>  F:1705      
@@ -200,7 +203,7 @@ system.time({
                               methods = c("thompson", "random", "oracle"))
 })
 #>    user  system elapsed 
-#>  70.172   0.240  70.502
+#>  69.026   0.155  69.261
 ```
 
 ## Results
@@ -266,11 +269,16 @@ count_plots <- plot_counts(simulated_cases, agent_scores = agent_scores,
 
 plot_list <- list(agent_perf_scat, agent_perf_dens, count_plots)
 all_plots <- plotly::subplot(plot_list, nrows = length(plot_list), margin = margin)
-htmlwidgets::saveWidget(all_plots, file = "intellagents_demo.html")
+
+# save git the headache of checking in another large html file
+if (!file.exists("intellagents_demo.html")) {
+  htmlwidgets::saveWidget(all_plots, file = "intellagents_demo.html")
+}
+# plotly does not render in for github_document (.md) output target
 # all_plots
 ```
 
-Resuliting visualization can be found
+Resulting visualization can be found
 [here](https://roboton.github.io/intellagents/intellagents_demo.html)
 with an explanation below:
 

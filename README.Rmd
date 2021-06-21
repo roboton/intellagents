@@ -54,7 +54,8 @@ The two libraries above define a probability matching solution to the multi-agen
 library(intellagents)
 library(tidyverse)
 # set a seed for the random number generator for consistent results
-set.seed(143)
+rng_seed <- 143
+set.seed(rng_seed)
 
 ## agent 
 
@@ -149,7 +150,7 @@ simulated_cases %>% group_by(method, agent_id) %>%
 
 We can animate these results across time to see how they accumulate to the table above:
 
-```{r fig.height=8, fig.width=8, out.width="100%", fig.align="center"}
+```{r}
 time_periods <- 30 
 period <- round(n_distinct(simulated_cases$date_time) / time_periods)
 margin <- 0.03
@@ -166,7 +167,12 @@ count_plots <- plot_counts(simulated_cases, agent_scores = agent_scores,
 
 plot_list <- list(agent_perf_scat, agent_perf_dens, count_plots)
 all_plots <- plotly::subplot(plot_list, nrows = length(plot_list), margin = margin)
-htmlwidgets::saveWidget(all_plots, file = "intellagents_demo.html")
+
+# save git the headache of checking in another large html file
+if (!file.exists("intellagents_demo.html")) {
+  htmlwidgets::saveWidget(all_plots, file = "intellagents_demo.html")
+}
+# plotly does not render in for github_document (.md) output target
 # all_plots
 ```
 
