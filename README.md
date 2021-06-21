@@ -160,12 +160,12 @@ future capability to have performance vary by these characteristics.
 cases <- generate_cases(num_cases, time_period = time_period)
 cases %>% mutate(across(where(is.character), as.factor)) %>% summary()
 #>    date_time                      case_id       subject_id   case_char
-#>  Min.   :2018-06-22 17:22:25   02ad7  :   2   1032a  :   7   A:1577   
-#>  1st Qu.:2019-03-19 20:43:02   0b6f9  :   2   246ec  :   6   B:1612   
-#>  Median :2019-12-11 04:42:36   0e29f  :   2   96feb  :   6   C:1582   
-#>  Mean   :2019-12-16 21:27:36   21da3  :   2   db3ca  :   6   D:1616   
-#>  3rd Qu.:2020-09-20 06:47:54   258b3  :   2   dfac0  :   6   E:1613   
-#>  Max.   :2021-06-21 13:33:30   2b39e  :   2   0621b  :   5            
+#>  Min.   :2018-06-22 17:48:26   02ad7  :   2   1032a  :   7   A:1577   
+#>  1st Qu.:2019-03-19 21:09:03   0b6f9  :   2   246ec  :   6   B:1612   
+#>  Median :2019-12-11 05:08:37   0e29f  :   2   96feb  :   6   C:1582   
+#>  Mean   :2019-12-16 21:53:37   21da3  :   2   db3ca  :   6   D:1616   
+#>  3rd Qu.:2020-09-20 07:13:56   258b3  :   2   dfac0  :   6   E:1613   
+#>  Max.   :2021-06-21 13:59:31   2b39e  :   2   0621b  :   5            
 #>                                (Other):7988   (Other):7964            
 #>  subject_char
 #>  F:1705      
@@ -198,7 +198,7 @@ system.time({
                               methods = c("thompson", "random", "oracle"))
 })
 #>    user  system elapsed 
-#>  69.609   0.132  69.827
+#>  69.552   0.169  69.812
 ```
 
 ## Results
@@ -265,10 +265,12 @@ count_plots <- plot_counts(simulated_cases, agent_scores = agent_scores,
 plot_list <- list(agent_perf_scat, agent_perf_dens, count_plots)
 all_plots <- plotly::subplot(plot_list, nrows = length(plot_list), margin = margin)
 htmlwidgets::saveWidget(all_plots, file = "intellagents_demo.html")
-all_plots
+# all_plots
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" />
+Resuliting visualization can be found
+[here](https://roboton.github.io/intellagents/intellagents_demo.html)
+with an explanation below:
 
 The first row of plots plots the beliefs and 2x mean deviation from the
 simulated estimates of each agents’ performance across the two outcomes.
@@ -286,6 +288,3 @@ The third row of plots are the accumulated case assignments (left) and
 outcomes (right), colored by the scenario, across time. Assigning more
 cases to the better performing agents results in higher accumulated
 counts of the desired outcomes.
-
-For a larger version of the final plot, click
-[here](https://roboton.github.io/intellagents/intellagents_demo.html).

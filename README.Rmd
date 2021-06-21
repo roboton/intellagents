@@ -165,13 +165,13 @@ count_plots <- plot_counts(simulated_cases, agent_scores = agent_scores,
 plot_list <- list(agent_perf_scat, agent_perf_dens, count_plots)
 all_plots <- plotly::subplot(plot_list, nrows = length(plot_list), margin = margin)
 htmlwidgets::saveWidget(all_plots, file = "intellagents_demo.html")
-all_plots
+# all_plots
 ```
+
+Resuliting visualization can be found [here](https://roboton.github.io/intellagents/intellagents_demo.html) with an explanation below:
 
 The first row of plots plots the beliefs and 2x mean deviation from the simulated estimates of each agents' performance across the two outcomes. As time passes and more cases are assigned to an agent, there is a more confident estimate of the agents' performance resulting in a tighter deviation.
 
 The second row of plots is similar but plots each outcome separately in its own row with each column being one of the three scenarios. This is a representation of our priors for each of the agents for each outcome as it evolves over time. Only `thompson` using this prior to choose which agent to assign next.
 
 The third row of plots are the accumulated case assignments (left) and outcomes (right), colored by the scenario, across time. Assigning more cases to the better performing agents results in higher accumulated counts of the desired outcomes.
-
-For a larger version of the final plot, click [here](https://roboton.github.io/intellagents/intellagents_demo.html).
