@@ -1,3 +1,20 @@
+#' Run a simulation with a set of cases and agents
+#'
+#' @param cases case load to simulate
+#' @param agents matrix of agents and their outcome scores
+#' @param outcomes character vector of outcomes
+#' @param outcome_weights weights to apply to each outcome
+#' @param norm_type type of norm. Same as _type_ in \link[base]{norm}
+#' @param methods methods of drawing agent to simulate ("random", "oracle", "thompson", "fixed")
+#' @param fixed_agent_list list of fixed agent assignments to simulate
+#' @param max_cases maximum number of cases an agent can have within max_period
+#' @param max_period period to consider individual agent case load
+#' @param memory how many cases to consider when assessing agent performance
+#'
+#' @return cases annotated with agent selections and outcomes
+#' @export
+#'
+#' @examples
 simulate <- function(cases, agents, outcomes = colnames(agents[[1]]),
                      outcome_weights = rep(1, length(outcomes)),
                      norm_type = "O",
